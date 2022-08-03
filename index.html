@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+    <meta name="author" content="Ritu Kumar" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        color: white;
+        background-color: blue;
+        font-family: system-ui;
+      }
+
+      body {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        box-sizing: border-box;
+        border: 10px solid black;
+      }
+
+      main {
+        margin: 100px;
+      }
+
+      #clock {
+        padding: 10px;
+        font-size: 40px;
+        border-radius: 50px;
+        box-shadow: 4px 4px 20px rgb(238, 238, 238);
+      }
+
+      footer {
+        position: relative;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        margin: auto;
+        border-radius: 10px;
+        box-shadow: 4px 4px 20px rgb(236, 236, 236);
+        /* background: linear-gradient(to right, orange, white, green); */
+      }
+
+      .social-media .fa {
+        font-size: 40px;
+        text-decoration: none;
+        padding: 2px;
+        margin: 10px;
+      }
+
+      .social-media .fa:hover {
+        opacity: 0.7;
+      }
+
+      .fa-github {
+        color: black;
+      }
+
+      .fa-linkedin {
+        color: #2599cf;
+      }
+
+      .fa-instagram {
+        color: rgb(180, 39, 62);
+      }
+
+      .fa-twitter {
+        color: #30a1f7;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <div id="clock"></div>
+    </main>
+    <footer>
+      <div class="social-media">
+        <a
+          href="https://github.com/Rupakrajput19"
+          target="_blank"
+          class="fa fa-github"
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/ritu-kumar-a0a5aa1b2"
+          target="_blank"
+          class="fa fa-linkedin"
+        ></a>
+        <a
+          href="https://www.instagram.com/rupakrajput161/"
+          target="_blank"
+          class="fa fa-instagram"
+        ></a>
+        <a
+          href="https://mobile.twitter.com/RupakRajput10"
+          target="_blank"
+          class="fa fa-twitter"
+        ></a>
+      </div>
+    </footer>
+  </body>
+  <script>
+    function clock() {
+      let date = new Date();
+      let hh = date.getHours();
+      let mm = date.getMinutes();
+      let ss = date.getSeconds();
+      let session = "AM";
+
+      if (hh === 0) {
+        hh = 12;
+      }
+      if (hh > 12) {
+        hh = hh - 12;
+        session = "PM";
+      }
+
+      hh = hh < 10 ? `0${hh}` : hh;
+      mm = mm < 10 ? `0${mm}` : mm;
+      ss = ss < 10 ? `0${ss}` : ss;
+
+      let time = hh + ":" + mm + ":" + ss + " " + session;
+
+      document.getElementById("clock").innerText = time;
+      let t = setTimeout(clock, 1000);
+    }
+
+    clock();
+  </script>
+</html>
